@@ -7,13 +7,14 @@ class Player:
         self.x, self.y = x, y
         self.w, self.h = 5, 5
         self.speed = 2
+        self.dest = 0
 
     def update(self):
         next_x, next_y = self.x, self.y
-        if pyxel.btn(pyxel.KEY_LEFT or pyxel.KEY_A): next_x -= self.speed
-        if pyxel.btn(pyxel.KEY_RIGHT or pyxel.KEY_D): next_x += self.speed
-        if pyxel.btn(pyxel.KEY_UP or pyxel.KEY_W): next_y -= self.speed
-        if pyxel.btn(pyxel.KEY_DOWN or pyxel.KEY_S): next_y += self.speed
+        if pyxel.btn(pyxel.KEY_LEFT or pyxel.KEY_A): next_x -= self.speed, self.dest = 0
+        if pyxel.btn(pyxel.KEY_RIGHT or pyxel.KEY_D): next_x += self.speed, self.dest = 1
+        if pyxel.btn(pyxel.KEY_UP or pyxel.KEY_W): next_y -= self.speed, self.dest = 2
+        if pyxel.btn(pyxel.KEY_DOWN or pyxel.KEY_S): next_y += self.speed, self.dest = 3
         #if pyxel.btn(pyxel.KEY_):
         next_tile_x, next_tile_y = next_x // 8, next_y // 8
         tile = pyxel.tilemap(0).pget(next_tile_x, next_tile_y)
@@ -22,7 +23,14 @@ class Player:
             self.x, self.y = next_x, next_y
 
     def draw(self):
-        pyxel.rect(self.x, self.y, self.w, self.h, 7)
+        if :
+                pyxel.blt(self.x, self.y, 0, 0, 72, 8, 8)
+        if :
+                pyxel.blt(self.x, self.y, 0, 8, 64, 8, 8)
+        if :
+                pyxel.blt(self.x, self.y, 0, 0, 64, 8, 8)
+        if :
+                pyxel.blt(self.x, self.y, 0, 8, 72, 8, 8)
 
 class App:
     def __init__(self):
